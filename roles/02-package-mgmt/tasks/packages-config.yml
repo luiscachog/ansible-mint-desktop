@@ -1,0 +1,88 @@
+---
+- name: Create apache Directories
+  become: true
+  file:
+    path: "{{ item.name }}"
+    owner: 
+    group: www-data
+    mode: "{{ item.mode }}"
+    state: directory
+    recurse: yes
+  with_items:
+    - { name: "/etc/apache/vhost.d/", mode: "0755" }
+    - { name: "/var/www/vhosts/ara/", mode: "0755" }
+    - { name: "/home/{{ user }}/.ara/", mode: "0770" }
+  tags:
+    - package_mgmt_config
+
+- name: Set ara_config_path when using mod_wsgi
+  set_fact:
+    ara_config_path: "{{ config_path | default(default_wsgi_config_path) }}"
+  tags:
+    - package_mgmt_config
+
+- name: Locate ara-wsgi script
+  become: true
+  command: which ara-wsgi
+  register: ara_wsgi
+  changed_when: false
+  tags:
+    - package_mgmt_config
+
+- debug: var=ara_wsgi
+  tags:
+    - package_mgmt_config
+
+- name: Ensure configuration directory for Ansible and ARA exists
+  file:
+    path: "{{ ara_config_path }}"
+    owner: "{{ apache_user }}"
+    group: "{{ apache_group }}"
+    state: directory
+    recurse: yes
+  tags:
+    - package_mgmt_config
+
+
+- name: Copy ara files if one does not exists
+  become: true
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: www-data
+    group: www-data
+    mode: 0775
+    force: no
+  with_items:
+    - { src: "{{ ara_wsgi.stdout }}", dest: '/var/www/vhosts/ara/ara-wsgi' }
+    - { src: 'apache/ara_ansible.cfg', dest: '{{ ara_config_path }}/ansible.cfg'}
+  tags:
+    - package_mgmt_config
+
+- name: Copy vhost template
+  become: true
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: www-data
+    group: www-data
+    mode: 0644
+  with_items:
+    - { src: 'templates/apache/ara_vhost.conf.j2', dest: '{{ apache_config_path }}/ara.conf' }
+  notify: 
+    - restart apache
+  tags:
+    - package_mgmt_config
+
+- name: Ensure the configuration is enabled
+  become: true
+  command: a2ensite "{{ item }}"
+  args:
+    creates: /etc/apache2/sites-enabled/{{ item }}.conf
+  with_items:
+    - ara
+  notify:
+    - restart apache
+  tags:
+    - package_mgmt_config
+

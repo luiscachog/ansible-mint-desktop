@@ -1,0 +1,20 @@
+---
+# vars file for 02-package-mgmt
+
+ara_servername: ara.local.home.lab
+
+extra_deb_packages:
+  - { url: 'https://github.com/BoostIO/boost-releases/releases/download/v0.8.14/boostnote_0.8.14_amd64.deb', name: 'boostnote_amd64.deb' }
+  - { url: 'https://github.com/tinytacoteam/zazu/releases/download/v0.5.2/zazu_0.5.2_amd64.deb', name: 'zazu.deb' }
+  - { url: 'https://remarkableapp.github.io/files/remarkable_1.87_all.deb', name: 'remarkable.deb'}
+  - { url: 'https://release.gitkraken.com/linux/gitkraken-amd64.deb', name: 'gitkraken.deb' }
+  - { url: 'https://github.com/atom/atom/releases/download/v1.21.1/atom-amd64.deb', name: 'atom.deb' }
+
+extra_sh_packages:
+- { url: 'https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh', name: 'oh-my-zsh.sh'}
+
+apache_service: apache2
+apache_user: www-data
+apache_group: www-data
+apache_log_path: /var/log/apache2/
+apache_config_path: /etc/apache2/sites-available

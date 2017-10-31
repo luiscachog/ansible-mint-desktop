@@ -1,0 +1,43 @@
+---
+
+- name: Download additional deb packages
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ tmp_dir }}/packages/{{ item.name }}"
+    #owner: "{{ user }}"
+    #group: "{{ group }}"
+  with_items:
+    - "{{ extra_deb_packages }} "
+  tags:
+    - package_mgmt_extra 
+
+
+- name: Install additional deb packages
+  become: yes
+  apt:
+    deb: "{{ tmp_dir}}/packages/{{ item.name }}"
+    state: present
+  with_items:
+    - "{{ extra_deb_packages }} "
+  tags:
+    - package_mgmt_extra
+
+- name: Download additional sh packages
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ tmp_dir }}/packages/{{ item.name }}"
+    mode: u+rwx
+  with_items:
+    - "{{ extra_sh_packages }}"
+  tags:
+    - package_mgmt_extra
+
+- name: Install additional sh packages 
+  become: yes
+  raw: sh "{{ tmp_dir }}/packages/{{ item.name }}"
+  ignore_errors: yes
+  with_items:
+    - "{{ extra_sh_packages }}"
+  tags:
+    - package_mgmt_extra
+

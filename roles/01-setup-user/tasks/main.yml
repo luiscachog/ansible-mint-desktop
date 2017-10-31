@@ -1,0 +1,103 @@
+---
+# tasks file for 01-setup-user
+- name: Create group= {{ group }} if not exists
+  become: yes
+  group:
+    name: "{{ group }}"
+    gid: 2000
+    state: present
+  tags: 
+    - system_user
+
+- name: Create User= {{ user }} if not exists
+  become: yes
+  user:
+    name: "{{ user }}"
+    password: "{{ password }}"
+    uid: 2000
+    group: "{{ group }}"
+    groups: "{{ item }}"
+    append: yes
+    shell: "{{ shell }}"
+    comment: "{{ user_comment }}"
+    createhome: yes
+    state: present
+  with_items:
+    - adm
+    - sudo
+    - dip
+    - plugdev
+    - lpadmin
+    - sambashare
+    - cdrom
+  tags:
+    - system_user_nw
+
+- name: Create hidden folders
+  become: yes
+  file:
+    path: /home/{{ user }}/{{ item }}
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ group }}"
+  with_items:
+    - .fonts
+    - .icons
+    - .tmp
+  tags: 
+    - system_user
+
+
+- name: Create workspace folders
+  become: yes
+  file:
+    path: /home/{{ user }}/workspace/{{ item }}
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ group }}"
+  with_items:
+    - bin
+    - devops
+    - tmp
+    - repos
+    - VMs
+    - books
+  tags:
+    - system_user
+
+- name: Create temporal directories to download everything
+  file:
+    name: "{{ tmp_dir }}/{{ item }}"
+    state: directory
+    recurse: yes
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0777
+  with_items:
+    - packages
+    - fonts
+    - icons
+  tags:
+    - system_user
+
+- name: Change root password
+  become: true
+  user:
+    name: root
+    password: "{{ root_password }}"
+  tags:
+    - system_user
+
+    
+- name: Allow {{ user }} user to have passwordless sudo
+  become: true
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    line: '{{ user }} ALL=(ALL) NOPASSWD:ALL'
+    validate: visudo -cf %s
+  tags:
+    - system_user
+
+
+

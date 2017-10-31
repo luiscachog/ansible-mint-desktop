@@ -1,0 +1,37 @@
+---
+# tasks file for 03-dotfiles
+
+- name: Download dotfiles from own repository
+  #become: yes
+  git:
+    repo: "https://github.com/k4ch0/dotfiles.git"
+    dest: "/home/{{ user }}/.dotfiles"
+    version: master
+  tags:
+    - dotfiles
+
+- name: Download dotfile from remote URLS
+  become: yes
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+  with_items:
+    - "{{ vars_dotfiles }}"
+  tags:
+    - dotfiles
+
+- name: Create symlink from dotfiles folder
+  become: yes
+  file:
+    src: "{{ item.src }}"
+    path: "{{ item.dest }}"
+    state: link
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 644
+  with_items:
+    - "{{ vars_dotfiles_symlinks }}"
+  tags:
+    - dotfiles

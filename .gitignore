@@ -1,0 +1,8 @@
+*.retry
+*.swp
+*.list
+*.log
+.vagrant
+*.box
+*.iso
+.gitstats

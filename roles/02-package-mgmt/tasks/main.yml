@@ -1,0 +1,7 @@
+---
+# tasks file for 02-package-mgmt
+
+- include: packages-apt.yml
+- include: packages-extras.yml
+- include: packages-python.yml
+- include: packages-config.yml

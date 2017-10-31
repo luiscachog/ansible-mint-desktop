@@ -1,0 +1,11 @@
+---
+# vars file for 03-dotfiles
+
+vars_dotfiles:
+  - { url: 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash', dest: '/home/{{ user }}/.dotfiles/.git-completion.bash'}
+  - { url: 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh', dest: '/home/{{ user }}/.dotfiles/.git-prompt.sh'}
+
+vars_dotfiles_symlinks:
+  - { src: '/home/{{ user }}/.dotfiles/.gitconfig', dest: '/home/{{ user }}/.gitconfig'}
+  - { src: '/home/{{ user }}/.dotfiles/.git-completion.bash', dest: '/home/{{ user }}/.git-completion.bash'}
+  - { src: '/home/{{ user }}/.dotfiles/.git-prompt.sh', dest: '/home/{{ user }}/.git-prompt.sh'}

@@ -1,0 +1,6 @@
+#
+# Global Inventory
+#
+
+# Only localhost
+localhost ansible_connection=local

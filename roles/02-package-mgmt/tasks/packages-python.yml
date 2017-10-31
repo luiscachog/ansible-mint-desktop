@@ -1,0 +1,18 @@
+---
+- name: Install Python Packages using pip
+  become: yes
+  pip: 
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - ara
+    - tox
+    - autopep8
+    - virtualenv
+    - pigar
+    - mkdocs
+    - vulture
+    - parsero
+#    - mypy-lang
+  tags:
+    - package_mgmt_py

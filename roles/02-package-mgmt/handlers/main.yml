@@ -1,0 +1,8 @@
+---
+# handlers file for 02-package-mgmt
+
+- name: restart apache
+  become: true
+  service:
+    name: apache2
+    state: restarted
