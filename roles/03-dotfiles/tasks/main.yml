@@ -22,6 +22,17 @@
   tags:
     - dotfiles
 
+- name: Dotfiles from template
+  become: yes
+  template:
+    src: "ssh_config"
+    dest: "/home/{{ user }}/.ssh/config"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0644
+  tags:
+    - dotfiles
+
 - name: Create symlink from dotfiles folder
   become: yes
   file:
@@ -30,7 +41,7 @@
     state: link
     owner: "{{ user }}"
     group: "{{ group }}"
-    mode: 644
+    mode: 0644
   with_items:
     - "{{ vars_dotfiles_symlinks }}"
   tags:

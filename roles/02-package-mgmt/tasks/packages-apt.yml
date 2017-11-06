@@ -44,6 +44,7 @@
     - deb https://download.sublimetext.com/ apt/stable/					                # Sublimetext repository
     - ppa:ubuntu-mozilla-security/ppa                                                   # Firefox repository
     - deb https://dl.bintray.com/resin-io/debian stable etcher                          # Etcher repository
+    - remmina-ppa-team/remmina-next                                                     # FreeRDP repository
   tags:
     - reposetup_package_mgmt
 
@@ -203,6 +204,10 @@
     - calibre
     - laptop-mode-tools
     - etcher-electron
+    - freerdp-x11
+    - git-crypt
+    - gnupg
+    - pastebinit
   tags:
     - package_mgmt_apps
 

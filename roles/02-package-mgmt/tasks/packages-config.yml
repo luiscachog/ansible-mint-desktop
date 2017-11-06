@@ -86,3 +86,11 @@
   tags:
     - package_mgmt_config
 
+- name: Setup EDITOR
+  become: true
+  alternatives:
+    name: editor
+    path: /usr/bin/vim.basic
+    priority: 30
+  tags: package_mgmt_config
+

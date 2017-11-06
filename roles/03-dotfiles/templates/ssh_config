@@ -1,0 +1,59 @@
+#  https://rax.io/auth-dfw1
+#  https://rax.io/auth-lon3
+#  https://rax.io/auth-ord1
+#  https://rax.io/auth-iad3
+#  https://rax.io/auth-lon5
+#  https://rax.io/auth-hkg1
+#  https://rax.io/auth-syd2
+
+Host bastion
+    Hostname cbast.ord1.corp.rackspace.net
+
+
+Host bast*
+    ForwardAgent yes
+    ForwardX11Trusted yes
+    ProxyCommand none
+    User {{ user }} 
+    ControlMaster auto
+    ControlPath ~/.ssh/master-%r@%h:%p
+    TCPKeepAlive yes
+    ServerAliveInterval 300
+    IdentityFile /home/{{ user }}/.ssh/id_rsa
+    #
+    # Most techs run a terminal permanently open to the bastion
+    # which serves as the MUX socket; if you do not do this,
+    # uncomment the below to have the first MUX created tossed
+    # into the background instead (man ssh -> "-O ctl_cmd")
+    ControlPersist 10h
+
+Host github.com
+    HostName github.com
+    User {{ github_user }}
+    PreferredAuthentications publickey
+    IdentityFile /home/{{ user }}/.ssh/prod.cookie_rsa
+    IdentitiesOnly yes
+
+Host github.rackspace.com
+    HostName github.rackspace.com
+    User {{ user }}
+    IdentityFile /home/{{ user }}/.ssh/github.rackspace.com_rsa
+    IdentitiesOnly yes
+
+Host localhost
+    Hostname 127.0.0.1
+    User {{ user }}
+    ProxyCommand ssh
+    
+
+Host *
+    ProxyCommand ssh -A bastion 'nc %h %p'
+    #ProxyCommand ${HOME}/.ssh/rackproxy.sh %h %p
+    ForwardX11Trusted yes
+    GSSAPIAuthentication no
+    StrictHostKeyChecking no
+    VerifyHostKeyDNS no
+    HashKnownHosts no
+    TCPKeepAlive yes
+    ServerAliveInterval 300
+    IdentityFile ~/.ssh/id_rsa
