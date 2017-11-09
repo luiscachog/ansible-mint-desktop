@@ -3,8 +3,9 @@
 
 vars_vault_files:
   - { src: 'github.rackspace.com_rsa.pub', dest: '/home/{{ user }}/workspace/vault/ssh/', perm: '0644'}
+  - { src: 'github.rackspace.com_rsa', dest: '/home/{{ user }}/workspace/vault/ssh/', perm: '0600'}
   - { src: 'github.com_rsa.pub', dest: '/home/{{ user }}/workspace/vault/ssh/', perm: '0644'}
-  - { src: 'github.com_rsa', dest: '/home/{{ user }}/workspace/vault/ssh/', perm: '0644'}
+  - { src: 'github.com_rsa', dest: '/home/{{ user }}/workspace/vault/ssh/', perm: '0600'}
 
 
 vars_vault_symlinks:
