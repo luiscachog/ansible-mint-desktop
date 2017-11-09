@@ -12,7 +12,7 @@
     - pigar
     - mkdocs
     - vulture
-    - parsero
+    #- parsero
 #    - mypy-lang
   tags:
     - package_mgmt_py

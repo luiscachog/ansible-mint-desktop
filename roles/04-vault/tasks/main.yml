@@ -1,5 +1,5 @@
 ---
-# tasks file for 03-dotfiles
+# tasks file for 04-vault
 
 - name: Download dotfiles from own repository
   #become: yes
@@ -8,32 +8,22 @@
     dest: "/home/{{ user }}/.dotfiles"
     version: master
   tags:
-    - dotfiles
+    - vault
 
-- name: Download dotfile from remote URLS
+- name: Download vault files 
   become: yes
-  get_url:
-    url: "{{ item.url }}"
+  copy:
+    src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     owner: "{{ user }}"
     group: "{{ group }}"
+    mode: "{{ item.perm }}"
   with_items:
-    - "{{ vars_dotfiles }}"
+    - "{{ vars_vault_files }}"
   tags:
-    - dotfiles
+    - vault
 
-- name: Download dotfiles from template
-  become: yes
-  template:
-    src: "ssh_config"
-    dest: "/home/{{ user }}/.dotfiles/extras"
-    owner: "{{ user }}"
-    group: "{{ group }}"
-    mode: 0644
-  tags:
-    - dotfiles
-
-- name: Create symlink from dotfiles folder
+- name: Create symlink from vault folder
   become: yes
   file:
     src: "{{ item.src }}"
@@ -43,6 +33,6 @@
     group: "{{ group }}"
     mode: 0644
   with_items:
-    - "{{ vars_dotfiles_symlinks }}"
+    - "{{ vars_vault_symlinks }}"
   tags:
-    - dotfiles
+    - vault

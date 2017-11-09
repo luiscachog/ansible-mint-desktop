@@ -62,6 +62,9 @@
     - repos
     - VMs
     - books
+    - vault
+    - vault/gitcrypt
+    - vault/ssh
   tags:
     - system_user
 

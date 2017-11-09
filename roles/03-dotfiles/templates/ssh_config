@@ -7,7 +7,7 @@
 #  https://rax.io/auth-syd2
 
 Host bastion
-    Hostname cbast.ord1.corp.rackspace.net
+    Hostname cbast.dfw1.corp.rackspace.net
 
 
 Host bast*

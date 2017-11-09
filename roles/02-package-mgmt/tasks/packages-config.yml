@@ -93,4 +93,3 @@
     path: /usr/bin/vim.basic
     priority: 30
   tags: package_mgmt_config
-

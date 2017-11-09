@@ -1,0 +1,9 @@
+---
+# vars file for 04-vault
+
+vars_vault_files:
+  - { src: 'github.rackspace.com_rsa.pub', dest: '/home/{{ user }}/workspace/vault/ssh/', perm: '0644'}
+
+
+vars_vault_symlinks:
+  - { src: '/home/{{ user }}/workspace/vault/ssh/github.rackspace.com_rsa.pub', dest: '/home/{{ user }}/.ssh/github.rackspace.com_rsa.pub'}

@@ -4,7 +4,7 @@
   connection: local
   remote_user: luis7238
   # become: yes
-  
+
   vars:
     - user: luis7238
     - group: luis7238
@@ -18,13 +18,14 @@
 
   pre_tasks:
     - name: Pretask - Show initial message
-      shell: echo "Setting up the system... " 
+      shell: echo "Setting up the system... "
 
   # Main Tasks
   roles:
     - 01-setup-user
     - 02-package-mgmt
     - 03-dotfiles
+    - 04-vault
    # - k4ch0.firefox
    # - alzadude.firefox-addon
     #- 03-firefox
