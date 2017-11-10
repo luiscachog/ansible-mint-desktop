@@ -10,5 +10,6 @@ vars_vault_files:
 
 vars_vault_symlinks:
   - { src: '/home/{{ user }}/workspace/vault/ssh/github.rackspace.com_rsa.pub', dest: '/home/{{ user }}/.ssh/github.rackspace.com_rsa.pub'}
+  - { src: '/home/{{ user }}/workspace/vault/ssh/github.rackspace.com_rsa', dest: '/home/{{ user }}/.ssh/github.rackspace.com_rsa'}
   - { src: '/home/{{ user }}/workspace/vault/ssh/github.com_rsa.pub', dest: '/home/{{ user }}/.ssh/github.com_rsa.pub'}
   - { src: '/home/{{ user }}/workspace/vault/ssh/github.com_rsa', dest: '/home/{{ user }}/.ssh/github.com_rsa'}

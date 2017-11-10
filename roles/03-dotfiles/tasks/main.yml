@@ -26,7 +26,7 @@
   become: yes
   template:
     src: "ssh_config"
-    dest: "/home/{{ user }}/.dotfiles/extras"
+    dest: "/home/{{ user }}/.ssh/config"
     owner: "{{ user }}"
     group: "{{ group }}"
     mode: 0644

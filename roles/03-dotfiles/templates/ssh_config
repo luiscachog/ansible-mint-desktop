@@ -31,7 +31,7 @@ Host github.com
     HostName github.com
     User {{ github_user }}
     PreferredAuthentications publickey
-    IdentityFile /home/{{ user }}/.ssh/prod.cookie_rsa
+    IdentityFile /home/{{ user }}/.ssh/github.com_rsa
     IdentitiesOnly yes
 
 Host github.rackspace.com
