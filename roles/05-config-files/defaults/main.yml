@@ -1,0 +1,16 @@
+---
+# defaults file for 05-config-files
+
+rax_signature: |
+  -------------------------------
+  Luis Cacho
+  Linux System Administrator - LATAM - RHCE - AWS Sysops
+  Rackspace - #1 Managed Cloud Company®
+  -------------------------------
+
+rax_private_signature: |
+  -------------------------------
+  Luis Cacho - Ext 501-4965
+  Linux System Administrator - LATAM - RHCE - AWS Sysops
+  Rackspace - #1 Managed Cloud Company®
+  -------------------------------

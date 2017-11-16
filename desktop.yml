@@ -26,6 +26,7 @@
     - 02-package-mgmt
     - 03-dotfiles
     - 04-vault
+    - 05-config-files
    # - k4ch0.firefox
    # - alzadude.firefox-addon
     #- 03-firefox

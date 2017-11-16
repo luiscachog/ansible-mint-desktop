@@ -208,6 +208,13 @@
     - git-crypt
     - gnupg
     - pastebinit
+    - byobu
+    - byobu-extras
+    - tmux
+    - jq
+    - pepperflashplugin-nonfree
+    - redshift 
+    - redshift-gtk
   tags:
     - package_mgmt_apps
 

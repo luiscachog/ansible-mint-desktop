@@ -1,0 +1,24 @@
+---
+- name: Create snippets directory if no exists
+  become: yes
+  file:
+    path: "/home/{{ user }}/.zazu/plugins/tinytacoteam/zazu-snippets/snippets"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0775
+    recurse: yes
+    state: directory
+  tags:
+    - config-files
+
+- name: Copy snippets to directory
+  template:
+    src: "{{ item }}"
+    dest: /home/{{ user }}/.zazu/plugins/tinytacoteam/zazu-snippets/snippets
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0755
+  with_items:
+    - "{{ vars_zazu_snippets }}"
+  tags:
+    - config-files

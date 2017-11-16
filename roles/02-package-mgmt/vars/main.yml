@@ -9,6 +9,9 @@ extra_deb_packages:
   - { url: 'https://remarkableapp.github.io/files/remarkable_1.87_all.deb', name: 'remarkable.deb'}
   - { url: 'https://release.gitkraken.com/linux/gitkraken-amd64.deb', name: 'gitkraken.deb' }
   - { url: 'https://github.com/atom/atom/releases/download/v1.21.1/atom-amd64.deb', name: 'atom.deb' }
+  - { url: 'https://github.com/meetfranz/franz/releases/download/v5.0.0-beta.13/franz_5.0.0-beta.13_amd64.deb', name: 'franz.deb'}
+  - { url: 'https://discordapp.com/api/download?platform=linux&format=deb', name: 'discord.deb'}
+  - { url: 'https://github.com/oguzhaninan/Stacer/releases/download/v1.0.8/stacer_1.0.8_amd64.deb', name: 'stacer.deb'}
 
 extra_sh_packages:
 - { url: 'https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh', name: 'oh-my-zsh.sh'}

@@ -65,6 +65,8 @@
     - vault
     - vault/gitcrypt
     - vault/ssh
+    - work
+    - training
   tags:
     - system_user
 
