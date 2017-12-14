@@ -3,13 +3,14 @@
 
 ara_servername: ara.local.home.lab
 
+# Packages updated on 2017/12/04
 extra_deb_packages:
-  - { url: 'https://github.com/BoostIO/boost-releases/releases/download/v0.8.14/boostnote_0.8.14_amd64.deb', name: 'boostnote_amd64.deb' }
+  - { url: 'https://github.com/BoostIO/boost-releases/releases/download/v0.8.18/boostnote_0.8.18_amd64.deb', name: 'boostnote_amd64.deb' }
   - { url: 'https://github.com/tinytacoteam/zazu/releases/download/v0.5.2/zazu_0.5.2_amd64.deb', name: 'zazu.deb' }
   - { url: 'https://remarkableapp.github.io/files/remarkable_1.87_all.deb', name: 'remarkable.deb'}
   - { url: 'https://release.gitkraken.com/linux/gitkraken-amd64.deb', name: 'gitkraken.deb' }
-  - { url: 'https://github.com/atom/atom/releases/download/v1.21.1/atom-amd64.deb', name: 'atom.deb' }
-  - { url: 'https://github.com/meetfranz/franz/releases/download/v5.0.0-beta.13/franz_5.0.0-beta.13_amd64.deb', name: 'franz.deb'}
+  - { url: 'https://github.com/atom/atom/releases/download/v1.22.1/atom-amd64.deb', name: 'atom.deb' }
+  - { url: 'https://github.com/meetfranz/franz/releases/download/v5.0.0-beta.14/franz_5.0.0-beta.14_amd64.deb', name: 'franz.deb'}
   - { url: 'https://discordapp.com/api/download?platform=linux&format=deb', name: 'discord.deb'}
   - { url: 'https://github.com/oguzhaninan/Stacer/releases/download/v1.0.8/stacer_1.0.8_amd64.deb', name: 'stacer.deb'}
 

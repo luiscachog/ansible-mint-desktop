@@ -44,23 +44,24 @@
     - deb https://download.sublimetext.com/ apt/stable/					                # Sublimetext repository
     - ppa:ubuntu-mozilla-security/ppa                                                   # Firefox repository
     - deb https://dl.bintray.com/resin-io/debian stable etcher                          # Etcher repository
-    - remmina-ppa-team/remmina-next                                                     # FreeRDP repository
+    # - remmina-ppa-team/remmina-next                                                     # FreeRDP repository
+    - ppa:webupd8team/terminix                                                          # Tilix          
   tags:
     - reposetup_package_mgmt
 
-- name: Add apt-keys 
-  become: yes
-  apt_key:
-    keyserver: hkp://keyserver.ubuntu.com:80 
-    id: "{{ item }}"
-    state: present
-  with_items:
-    - BBEBDCB318AD50EC6865090613B00F1FD2C19886		# Spotify key
-    - 0DF731E45CE24F27EEEB1450EFDC8610341D9410		# Spotify key
-    - 29A4B41A                                      # F.lux key
-    - 379CE192D401AB61                              # Etcher key
-  tags:
-    - reposetup_package_mgmt
+# - name: Add apt-keys 
+#   become: yes
+#   apt_key:
+#     keyserver: hkp://keyserver.ubuntu.com:80 
+#     id: "{{ item }}"
+#     state: present
+#   with_items:
+#     - BBEBDCB318AD50EC6865090613B00F1FD2C19886		# Spotify key
+#     - 0DF731E45CE24F27EEEB1450EFDC8610341D9410		# Spotify key
+#     - 29A4B41A                                      # F.lux key
+#     - 379CE192D401AB61                              # Etcher key
+#   tags:
+#     - reposetup_package_mgmt
 
 - name: Add apt-keys by URL
   become: yes
@@ -215,6 +216,15 @@
     - pepperflashplugin-nonfree
     - redshift 
     - redshift-gtk
+    - nethogs
+    - shutter
+    - gramps
+    - font-manager
+    - fonts-inconsolata
+    - fonts-ubuntu-font-family-console
+    - multitail
+    - sqlitebrowser
+    - tilix
   tags:
     - package_mgmt_apps
 

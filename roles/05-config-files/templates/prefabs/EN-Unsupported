@@ -1,0 +1,22 @@
+
+Hello,
+
+You have asked us to perform a service that is not part of our standard offering. Specifically, you have asked us to  {describe service}.
+
+We do not normally perform this type of service, and do not have any specific training or process for this. We will undertake this service for {Customer} as a courtesy on a reasonable endeavor basis with the understanding that this is an “Unsupported Service” and is performed subject to the following legal terms:
+
+Rackspace makes no representation or warranty whatsoever regarding any Unsupported Service, and you agree that Rackspace will not be liable to you for any loss or damage arising from the provision of the Unsupported Service. The service level guarantees will not apply to the Unsupported Service, or any other aspect of the hosting services that is adversely affected by the Unsupported Service. You acknowledge that Unsupported Services may not inter-operate with Rackspace's other services, such as backup and monitoring.
+
+In order for the service to be performed, you must reply to this ticket with the words “I agree” which means that you:
+
+- Have read, understood, and agree to the terms above;
+
+- Authorize Rackspace to perform the Unsupported Service; and
+
+- Represent to Rackspace that you have the legal authority to make this agreement on behalf of {Customer}.
+
+PLEASE DO NOT CLOSE THIS TICKET.
+
+Thank you, 
+
+{{ rax_signature }}

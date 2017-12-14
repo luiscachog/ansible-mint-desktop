@@ -2,18 +2,19 @@
 # vars file for 05-config-files
 
 vars_zazu_snippets:
-  - EN-Alert
-  - EN-Closed
-  - EN-Handoff
-  - EN-I-will
-  - EN-Private
-  - EN-Progress
-  - EN-Solved
-  - EN-Ticket
-  - EN-Unsupported
-  - ES-Closed
-  - ES-Estare
-  - ES-Solved
-  - ES-Ticket
+  - prefabs/EN-Alert
+  - prefabs/EN-Closed
+  - prefabs/EN-Handoff
+  - prefabs/EN-I-will
+  - prefabs/EN-Private
+  - prefabs/EN-Progress
+  - prefabs/EN-Solved
+  - prefabs/EN-Ticket
+  - prefabs/EN-Unsupported
+  - prefabs/ES-Closed
+  - prefabs/ES-Estare
+  - prefabs/ES-Solved
+  - prefabs/ES-Ticket
 
-
+vars_autostart_symlinks:
+  - { src: '/home/{{ user }}/.dotfiles/.config/autostart', dest: '/home/{{ user }}/.config/autostart'}

@@ -2,3 +2,4 @@
 # tasks file for 05-config-files
 #
 - include: zazu-config.yml
+- include: autostart-config.yml

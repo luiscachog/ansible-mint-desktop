@@ -4,7 +4,7 @@
 - name: Download dotfiles from own repository
   #become: yes
   git:
-    repo: "https://github.com/k4ch0/dotfiles.git"
+    repo: "git@github.com:k4ch0/dotfiles.git"
     dest: "/home/{{ user }}/.dotfiles"
     version: master
   tags:

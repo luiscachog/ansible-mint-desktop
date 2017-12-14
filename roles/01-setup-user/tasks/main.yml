@@ -9,29 +9,29 @@
   tags: 
     - system_user
 
-- name: Create User= {{ user }} if not exists
-  become: yes
-  user:
-    name: "{{ user }}"
-    password: "{{ password }}"
-    uid: 2000
-    group: "{{ group }}"
-    groups: "{{ item }}"
-    append: yes
-    shell: "{{ shell }}"
-    comment: "{{ user_comment }}"
-    createhome: yes
-    state: present
-  with_items:
-    - adm
-    - sudo
-    - dip
-    - plugdev
-    - lpadmin
-    - sambashare
-    - cdrom
-  tags:
-    - system_user_nw
+# - name: Create User= {{ user }} if not exists
+#   become: yes
+#   user:
+#     name: "{{ user }}"
+#     password: "{{ password }}"
+#     uid: 2000
+#     group: "{{ group }}"
+#     groups: "{{ item }}"
+#     append: yes
+#     shell: "{{ shell }}"
+#     comment: "{{ user_comment }}"
+#     createhome: yes
+#     state: present
+#   with_items:
+#     - adm
+#     - sudo
+#     - dip
+#     - plugdev
+#     - lpadmin
+#     - sambashare
+#     - cdrom
+#   tags:
+#     - system_user_nw
 
 - name: Create hidden folders
   become: yes
@@ -60,7 +60,7 @@
     - devops
     - tmp
     - repos
-    - VMs
+    - vms
     - books
     - vault
     - vault/gitcrypt

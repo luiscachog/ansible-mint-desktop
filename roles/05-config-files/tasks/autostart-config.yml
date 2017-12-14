@@ -1,0 +1,25 @@
+---
+- name: Download dotfiles from own repository
+  #become: yes
+  git:
+    repo: "git@github.com:k4ch0/dotfiles.git"
+    dest: "/home/{{ user }}/.dotfiles"
+    version: master
+  when: dotfiles_repo is not defined
+  tags:
+    - config-files
+
+- name: Create symlink from dotfiles folder
+  become: yes
+  file:
+    src: "{{ item.src }}"
+    path: "{{ item.dest }}"
+    state: link
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0644
+  with_items:
+    - "{{ vars_autostart_symlinks }}"
+  tags:
+    - config-files
+
