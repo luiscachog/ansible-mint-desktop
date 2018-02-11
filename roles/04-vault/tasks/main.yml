@@ -10,18 +10,18 @@
   tags:
     - vault
 
-- name: Delete any key
-  become: yes
-  file:
-    path: "/home/{{ user}}/.ssh/{{ item }}"
-    state: absent
-  with_items:
-    - github.com_rsa
-    - github.com_rsa.pub
-    - luiscachog.io_rsa
-    - luiscachog.io_rsa.pub
-  tags:
-    - vault
+# - name: Delete any key
+#   become: yes
+#   file:
+#     path: "/home/{{ user}}/.ssh/{{ item }}"
+#     state: absent
+#   with_items:
+#     - github.com_rsa
+#     - github.com_rsa.pub
+#     - luiscachog.io_rsa
+#     - luiscachog.io_rsa.pub
+#   tags:
+#     - vault
 
 - name: Download vault files 
   become: yes
