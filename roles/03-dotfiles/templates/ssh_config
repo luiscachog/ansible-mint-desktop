@@ -8,6 +8,13 @@
 
 Host bastion
     Hostname cbast.dfw1.corp.rackspace.net
+#    Hostname cbast.ord1.corp.rackspace.net
+#    Hostname cbast.iad3.corp.rackspace.net
+#    Hostname cbast.lon3.corp.rackspace.net
+#    Hostname cbast.lon5.corp.rackspace.net
+#    Hostname cbast.hkg1.corp.rackspace.net
+#    Hostname cbast.syd2.corp.rackspace.net
+
 
 
 Host bast*
@@ -46,7 +53,7 @@ Host localhost
     ProxyCommand ssh
     
 
-Host *
+#Host *
     ProxyCommand ssh -A bastion 'nc %h %p'
     #ProxyCommand ${HOME}/.ssh/rackproxy.sh %h %p
     ForwardX11Trusted yes
