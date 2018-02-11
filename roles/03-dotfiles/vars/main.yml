@@ -14,6 +14,7 @@ vars_dotfiles_symlinks:
   - { src: '/home/{{ user }}/.dotfiles/.gitconfig', dest: '/home/{{ user }}/.gitconfig'}
   - { src: '/home/{{ user }}/.dotfiles/.git-completion.bash', dest: '/home/{{ user }}/.git-completion.bash'}
   - { src: '/home/{{ user }}/.dotfiles/.git-prompt.sh', dest: '/home/{{ user }}/.git-prompt.sh'}
+  - { src: '/home/{{ user }}/.dotfiles/.hugo-completion.bash', dest: '/home/{{ user }}/.hugo-completion.bash'}
   - { src: '/home/{{ user }}/.dotfiles/.zshrc', dest: '/home/{{ user }}/.zshrc'}
   - { src: '/home/{{ user }}/.dotfiles/.zazurc.json', dest: '/home/{{ user }}/.zazurc.json'}
   - { src: '/home/{{ user }}/.dotfiles/.vimrc', dest: '/home/{{ user }}/.vimrc'}
