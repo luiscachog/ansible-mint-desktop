@@ -3,15 +3,15 @@
   become: true
   file:
     path: "{{ item.name }}"
-    owner: 
-    group: www-data
+    owner: "{{ apache_user }}"
+    group: "{{ apache_group }}"
     mode: "{{ item.mode }}"
     state: directory
     recurse: yes
   with_items:
     - { name: "/etc/apache/vhost.d/", mode: "0755" }
-    - { name: "/var/www/vhosts/ara/", mode: "0755" }
-    - { name: "/home/{{ user }}/.ara/", mode: "0770" }
+    - { name: "{{ default_wsgi_config_path }}", mode: "0755" }
+    - { name: "/var/www/.ansible", mode: "0770" }
   tags:
     - package_mgmt_config
 
@@ -21,10 +21,11 @@
   tags:
     - package_mgmt_config
 
+
 - name: Locate ara-wsgi script
   become: true
   command: which ara-wsgi
-  register: ara_wsgi
+  register: ara_wsgi  
   changed_when: false
   tags:
     - package_mgmt_config
@@ -34,6 +35,7 @@
     - package_mgmt_config
 
 - name: Ensure configuration directory for Ansible and ARA exists
+  become: true
   file:
     path: "{{ ara_config_path }}"
     owner: "{{ apache_user }}"
@@ -49,13 +51,13 @@
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    owner: www-data
-    group: www-data
+    owner: "{{ apache_user }}"
+    group: "{{ apache_group }}"
     mode: 0775
     force: no
   with_items:
-    - { src: "{{ ara_wsgi.stdout }}", dest: '/var/www/vhosts/ara/ara-wsgi' }
-    - { src: 'apache/ara_ansible.cfg', dest: '{{ ara_config_path }}/ansible.cfg'}
+    - { src: "{{ ara_wsgi.stdout }}", dest: '{{ ara_config_path }}/ara-wsgi' }
+    #- { src: 'apache/ara_ansible.cfg', dest: '{{ ara_config_path }}/ansible.cfg'}
   tags:
     - package_mgmt_config
 
@@ -81,6 +83,7 @@
     creates: /etc/apache2/sites-enabled/{{ item }}.conf
   with_items:
     - ara
+  changed_when: true
   notify:
     - restart apache
   tags:

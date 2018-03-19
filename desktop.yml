@@ -25,8 +25,8 @@
     - 01-setup-user
     - 02-package-mgmt
     - 03-dotfiles
-    - 04-vault
-    - 05-config-files
+#    - 04-vault
+#    - 05-config-files
    # - k4ch0.firefox
    # - alzadude.firefox-addon
     #- 03-firefox
@@ -35,3 +35,4 @@
     # - rax
     # #- environment
     # - 05-non-virtual
+    # - ara

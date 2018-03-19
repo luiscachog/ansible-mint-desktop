@@ -7,7 +7,7 @@
     #owner: "{{ user }}"
     #group: "{{ group }}"
   with_items:
-    - "{{ extra_deb_packages }} "
+    - "{{ var_extra_deb_packages }} "
   tags:
     - package_mgmt_extra 
 
@@ -18,7 +18,7 @@
     deb: "{{ tmp_dir}}/packages/{{ item.name }}"
     state: present
   with_items:
-    - "{{ extra_deb_packages }} "
+    - "{{ var_extra_deb_packages }} "
   tags:
     - package_mgmt_extra
 

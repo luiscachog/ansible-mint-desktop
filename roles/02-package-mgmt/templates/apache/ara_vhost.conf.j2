@@ -2,14 +2,14 @@
     # Replace ServerName by your hostname
     ServerName {{ ara_servername }}
 
-    ErrorLog {{ apache_log_path }}/ara-error.log
+    ErrorLog {{ apache_log_path }}ara-error.log
     LogLevel warn
-    CustomLog {{ apache_log_path }}/ara-access.log combined
+    CustomLog {{ apache_log_path }}ara-access.log combined
 
     WSGIDaemonProcess ara user={{ apache_user }} group={{ apache_user }} processes=4 threads=1
     WSGIScriptAlias / /var/www/vhosts/ara/ara-wsgi
 
-    SetEnv ANSIBLE_CONFIG {{ ara_config_path }}
+    SetEnv ANSIBLE_CONFIG /home/{{ user }}/workspace/repos/ansible-mint-desktop/ansible.cfg
 
     <Directory /var/www/vhosts/ara>
         WSGIProcessGroup ara

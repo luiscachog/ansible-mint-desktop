@@ -1,18 +1,190 @@
 ---
 # vars file for 02-package-mgmt
 
+var_repositories:
+  - { repo: 'ppa:peterlevi/ppa'}                                                                 # Variety repository
+  - { repo: 'ppa:yg-jensge/shotwell'}                                                            # Shotwell repository
+  - { repo: 'ppa:twodopeshaggy/jarun'}                                                           # Buku repository
+  # - { repo: 'ppa:tomahawk/ppa'}                                                                # Tomahawk repository
+  - { repo: 'deb http://repository.spotify.com stable non-free'}                                 # Spotify repository
+  - { repo: 'ppa:otto-kesselgulasch/gimp'}                                                       # Gimp repository
+  - { repo: 'ppa:tmate.io/archive'}                                                              # Tmate repository
+  - { repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ codename }} stable'}   # Docker repository
+  - { repo: 'ppa:jonathonf/texlive'}                                                             # Texlive repository
+  - { repo: 'ppa:nathan-renniewaldock/flux'}                                                     # F.lux repository
+  - { repo: 'deb https://download.sublimetext.com/ apt/stable/'}                                 # Sublimetext repository
+  - { repo: 'ppa:ubuntu-mozilla-security/ppa'}                                                   # Firefox repository
+  - { repo: 'deb https://dl.bintray.com/resin-io/debian stable etcher'}                          # Etcher repository
+  # - { repo: ' remmina-ppa-team/remmina-next'}                                                  # FreeRDP repository
+  - { repo: 'ppa:webupd8team/terminix'}                                                          # Tilix repository
+  - { repo: 'deb http://download.virtualbox.org/virtualbox/debian {{ codename }} contrib'}       # VirtualBox repository
+  - { repo: 'deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free'}      # Resilio repository
+  - { repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ codename }} main'}                      # Kubernetes repository
+  - { repo: 'ppa:oguzhaninan/stacer'}                                                            # Stacer repository 
+
+var_repokeys:
+  - { key: 'https://download.docker.com/linux/ubuntu/gpg'}              # Docker Key
+  - { key: 'https://download.sublimetext.com/sublimehq-pub.gpg'}        # Sublimetext Key
+  - { key: 'https://www.virtualbox.org/download/oracle_vbox_2016.asc'}  # VirtualBox Key
+  - { key: 'https://www.virtualbox.org/download/oracle_vbox.asc'}       # VirtualBox Key
+  - { key: 'https://linux-packages.resilio.com/resilio-sync/key.asc'}   # Resilio Key
+  - { key: 'https://packages.cloud.google.com/apt/doc/apt-key.gpg'}     # Kubernetes Key
+
+var_common_pkgs:
+  - { name: 'aptitude'}
+  - { name: 'ubuntu-restricted-extras'}
+  - { name: 'firefox'}
+  - { name: 'dropbox'}
+  - { name: 'nemo-dropbox'}
+  - { name: 'silversearcher-ag'}
+  - { name: 'autojump'}
+  - { name: 'tree'}
+  - { name: 'gzip'}
+  - { name: 'bzip2'}
+  - { name: 'zip'}
+  - { name: 'unzip'}
+  - { name: 'apt-transport-https'}
+  - { name: 'spotify-client'}
+  - { name: 'clementine'}
+  - { name: 'gimp'}
+  - { name: 'whois'}
+  - { name: 'breeze-cursor-theme'}
+  - { name: 'software-properties-common'}
+  - { name: 'variety'}
+  - { name: 'shotwell'}
+  - { name: 'buku'}
+  - { name: 'tomahawk'}
+  - { name: 'fluxgui'}
+  - { name: 'ttf-liberation'}
+  - { name: 'ttf-mscorefonts-installer'}
+  - { name: 'easytag'}
+  - { name: 'vlc'}
+  - { name: 'k3b'}
+  - { name: 'k3b-i18n'}
+  - { name: 'ubuntu-restricted-addons'}
+  - { name: 'ubuntu-restricted-extras'}
+  - { name: 'gstreamer1.0-plugins-good'}
+  - { name: 'gstreamer1.0-plugins-bad'}
+  - { name: 'gstreamer1.0-plugins-ugly'}
+  - { name: 'gstreamer1.0-libav'}
+  - { name: 'aspell-es'}
+  - { name: 'calibre'}
+  - { name: 'laptop-mode-tools'}
+  - { name: 'pepperflashplugin-nonfree'}
+  - { name: 'redshift'}
+  - { name: 'redshift-gtk'}
+  - { name: 'shutter'}
+  - { name: 'gramps'}
+  - { name: 'font-manager'}
+  - { name: 'fonts-inconsolata'}
+  #- { name: 'texlive-full'}
+  - { name: 'texmaker'}
+  #- { name: 'docbook-utils'}
+  - { name: 'docbook-xsl'}
+  - { name: 'docbook2odf'}
+  - { name: 'publican'}
+  - { name: 'fonts-ubuntu-font-family-console'}  
+
+var_dev_pkgs:
+  - { name: 'sublime-text'}
+  - { name: 'build-essential'}
+  - { name: 'gcc'}
+  - { name: 'python-dev'}
+  - { name: 'libffi-dev'}
+  - { name: 'libssl-dev'}
+  - { name: 'libxml2-utils'}
+  - { name: 'libnss3-tools'}
+  - { name: 'xsltproc'}
+  - { name: 'xmlto'}
+  - { name: 'expect'}
+  - { name: 'git-core'}
+  - { name: 'git-flow'}
+  - { name: 'git-email'}
+  - { name: 'git-extras'}
+  - { name: 'git-crypt'}
+  - { name: 'git-review'}
+
+var_tool_pkgs:
+  - { name: 'terminator'}
+  - { name: 'zsh'}
+  - { name: 'byobu'}
+  - { name: 'byobu-extras'}
+  - { name: 'tmux'}
+  - { name: 'tilix'}
+  - { name: 'sysstat'}
+  - { name: 'htop'}
+  - { name: 'nmap'}
+  - { name: 'curl'}
+  - { name: 'wget'}
+  - { name: 'tcpdump'}
+  - { name: 'wireshark'}
+  - { name: 'tshark'}
+  - { name: 'dnsutils'}
+  - { name: 'ethtool'}
+  - { name: 'ipcalc'}
+  - { name: 'fping'}
+  - { name: 'vnstat'}
+  - { name: 'lftp'}
+  - { name: 'apache2'}  
+  - { name: 'libapache2-mod-wsgi'}
+  - { name: 'openssl'}
+  - { name: 'openssh-client'}
+  - { name: 'gnupg'}
+  - { name: 'gnupg-agent'}
+  - { name: 'ssh-askpass'}
+  - { name: 'rsync'}
+  - { name: 'mlocate'}
+  - { name: 'iftop'}
+  - { name: 'iotop'}
+  - { name: 'traceroute'}
+  - { name: 'pastebinit'}
+  - { name: 'jq'}
+  - { name: 'nethogs'}
+  - { name: 'multitail'}
+  - { name: 'sqlitebrowser'}
+  - { name: 'pwgen'}
+  - { name: 'man-db'}
+  - { name: 'screen'}
+  - { name: 'lzop'}
+  - { name: 'dkms'}
+  - { name: 'resilio-sync'}
+  - { name: 'linssid'}
+  - { name: 'freerdp-x11'}
+  - { name: 'fop'}
+  - { name: 'sshfs'}
+  - { name: 'ca-certificates'}
+  - { name: 'xsel'}
+  - { name: 'ntp'}
+  # - { name: 'stacer'}
+
+
+var_infra_pkgs:
+  - { name: 'docker-ce'}
+  - { name: 'vagrant'}
+  - { name: 'virtualbox-5.2'}
+  - { name: 'kubectl'}
+  - { name: 'kubeadm'}
+  - { name: 'kubernetes-cni'}
+  - { name: 'kubelet'}
+  - { name: 'etcher-electron'}
+ 
+
+
+    
+  
+
+
 ara_servername: ara.local.home.lab
 
-# Packages updated on 2017/12/04
-extra_deb_packages:
-  - { url: 'https://github.com/BoostIO/boost-releases/releases/download/v0.8.18/boostnote_0.8.18_amd64.deb', name: 'boostnote_amd64.deb' }
+# Packages updated on 2018/03/11
+var_extra_deb_packages:
+  # - { url: 'https://github.com/BoostIO/boost-releases/releases/download/v0.8.18/boostnote_0.8.18_amd64.deb', name: 'boostnote_amd64.deb' }
   - { url: 'https://github.com/tinytacoteam/zazu/releases/download/v0.5.2/zazu_0.5.2_amd64.deb', name: 'zazu.deb' }
   - { url: 'https://remarkableapp.github.io/files/remarkable_1.87_all.deb', name: 'remarkable.deb'}
   - { url: 'https://release.gitkraken.com/linux/gitkraken-amd64.deb', name: 'gitkraken.deb' }
-  - { url: 'https://github.com/atom/atom/releases/download/v1.22.1/atom-amd64.deb', name: 'atom.deb' }
-  - { url: 'https://github.com/meetfranz/franz/releases/download/v5.0.0-beta.14/franz_5.0.0-beta.14_amd64.deb', name: 'franz.deb'}
-  - { url: 'https://discordapp.com/api/download?platform=linux&format=deb', name: 'discord.deb'}
-  - { url: 'https://github.com/oguzhaninan/Stacer/releases/download/v1.0.8/stacer_1.0.8_amd64.deb', name: 'stacer.deb'}
+  - { url: 'https://github.com/atom/atom/releases/download/v1.24.1/atom-amd64.deb', name: 'atom.deb' }
+  - { url: 'https://github.com/meetfranz/franz/releases/download/v5.0.0-beta.16/franz_5.0.0-beta.16_amd64.deb', name: 'franz.deb'}
+  - { url: 'https://discordapp.com/api/download?platform=linux&format=deb', name: 'discord.deb'}  
 
 extra_sh_packages:
 - { url: 'https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh', name: 'oh-my-zsh.sh'}

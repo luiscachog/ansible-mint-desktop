@@ -2,7 +2,7 @@
 # defaults file for 02-package-mgmt
 
 # Host to listen on for embedded server or apache
-ara_host: "ara.local.home.lab"
+ara_host: "ara.home.lab"
 
 # Default paths where an ansible.cfg file is expected
 default_wsgi_config_path: "/var/www/vhosts/ara"
@@ -12,6 +12,3 @@ ara_port: "80"
 
 # Deploy with apache and mod_wsgi
 mod_wsgi: true
-
-# Deploy with persistent embedded_webserver
-embedded_server: false

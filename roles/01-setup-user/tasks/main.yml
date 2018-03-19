@@ -1,5 +1,9 @@
 ---
 # tasks file for 01-setup-user
+
+- name: Role - User Configuration
+  shell: echo "Setting up the username... "
+
 - name: Create group= {{ group }} if not exists
   become: yes
   group:
@@ -44,9 +48,9 @@
     - .fonts
     - .icons
     - .tmp
+    - .config/powerline
   tags: 
     - system_user
-
 
 - name: Create workspace folders
   become: yes
@@ -56,19 +60,42 @@
     owner: "{{ user }}"
     group: "{{ group }}"
   with_items:
+    - backups
     - bin
-    - devops
-    - tmp
-    - repos
-    - vms
     - books
+    - go
+    - repos
+    - tmp
+    - training
+    - sandbox
     - vault
     - vault/gitcrypt
     - vault/ssh
+    - vms
     - work
-    - training
   tags:
     - system_user
+
+- name: Get temporal directories older than 5 days
+  find:
+    paths: "{{ tmp_dir }}"
+    age: 5d
+    age_stamp: ctime
+    recurse: true
+  register: files_to_delete
+
+- name: debug
+  debug:
+    var: files_to_delete.files
+
+- name: Delete files older than 5 days using var files_to_delete
+  become: true
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items:
+    - "{{ files_to_delete.files }}"
+
 
 - name: Create temporal directories to download everything
   file:
