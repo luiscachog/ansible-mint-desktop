@@ -19,4 +19,4 @@ vars_dotfiles_symlinks:
   - { src: '/home/{{ user }}/.dotfiles/.zazurc.json', dest: '/home/{{ user }}/.zazurc.json'}
   - { src: '/home/{{ user }}/.dotfiles/.vimrc', dest: '/home/{{ user }}/.vimrc'}
   - { src: '/home/{{ user }}/.dotfiles/.byobu', dest: '/home/{{ user }}/.byobu'}
-
+  - { src: '/home/{{ user }}/.dotfiles/config.json', dest: '/home/{{ user }}/.config/powerline/config.json'}
