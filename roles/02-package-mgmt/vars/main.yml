@@ -20,7 +20,7 @@ var_repositories:
   - { repo: 'deb http://download.virtualbox.org/virtualbox/debian {{ codename }} contrib'}       # VirtualBox repository
   - { repo: 'deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free'}      # Resilio repository
   - { repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ codename }} main'}                      # Kubernetes repository
-  - { repo: 'ppa:oguzhaninan/stacer'}                                                            # Stacer repository 
+  - { repo: 'ppa:oguzhaninan/stacer'}                                                            # Stacer repository
 
 var_repokeys:
   - { key: 'https://download.docker.com/linux/ubuntu/gpg'}              # Docker Key
@@ -83,7 +83,8 @@ var_common_pkgs:
   - { name: 'docbook-xsl'}
   - { name: 'docbook2odf'}
   - { name: 'publican'}
-  - { name: 'fonts-ubuntu-font-family-console'}  
+  - { name: 'fonts-ubuntu-font-family-console'}
+  - { name: 'libgoo-canvas-perl'}
 
 var_dev_pkgs:
   - { name: 'sublime-text'}
@@ -125,7 +126,7 @@ var_tool_pkgs:
   - { name: 'fping'}
   - { name: 'vnstat'}
   - { name: 'lftp'}
-  - { name: 'apache2'}  
+  - { name: 'apache2'}
   - { name: 'libapache2-mod-wsgi'}
   - { name: 'openssl'}
   - { name: 'openssh-client'}
@@ -167,12 +168,6 @@ var_infra_pkgs:
   - { name: 'kubernetes-cni'}
   - { name: 'kubelet'}
   - { name: 'etcher-electron'}
- 
-
-
-    
-  
-
 
 ara_servername: ara.local.home.lab
 
@@ -184,7 +179,7 @@ var_extra_deb_packages:
   - { url: 'https://release.gitkraken.com/linux/gitkraken-amd64.deb', name: 'gitkraken.deb' }
   - { url: 'https://github.com/atom/atom/releases/download/v1.24.1/atom-amd64.deb', name: 'atom.deb' }
   - { url: 'https://github.com/meetfranz/franz/releases/download/v5.0.0-beta.16/franz_5.0.0-beta.16_amd64.deb', name: 'franz.deb'}
-  - { url: 'https://discordapp.com/api/download?platform=linux&format=deb', name: 'discord.deb'}  
+  - { url: 'https://discordapp.com/api/download?platform=linux&format=deb', name: 'discord.deb'}
 
 extra_sh_packages:
 - { url: 'https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh', name: 'oh-my-zsh.sh'}

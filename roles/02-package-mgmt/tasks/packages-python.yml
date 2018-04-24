@@ -1,7 +1,7 @@
 ---
 - name: Install Python Packages using pip
   become: yes
-  pip: 
+  pip:
     name: "{{ item }}"
     state: latest
   with_items:
@@ -12,6 +12,8 @@
     - pigar
     - mkdocs
     - vulture
+    - powerline-status
+    - sshuttle
     #- parsero
 #    - mypy-lang
   tags:
