@@ -1,14 +1,14 @@
 ---
 # tasks file for 04-vault
 
-- name: Download dotfiles from own repository
+#- name: Download dotfiles from own repository
   #become: yes
-  git:
-    repo: "git@github.com:k4ch0/dotfiles.git"
-    dest: "/home/{{ user }}/.dotfiles"
-    version: master
-  tags:
-    - vault
+  #  git:
+  #   repo: "git@github.com:k4ch0/dotfiles.git"
+  #  dest: "/home/{{ user }}/.dotfiles"
+  #  version: master
+  #tags:
+  #  - vault
 
 # - name: Delete any key
 #   become: yes
@@ -23,7 +23,7 @@
 #   tags:
 #     - vault
 
-- name: Download vault files 
+- name: Download vault files
   become: yes
   copy:
     src: "{{ item.src }}"

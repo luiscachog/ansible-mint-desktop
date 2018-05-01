@@ -8,14 +8,24 @@
 
 Host bastion
     Hostname cbast.dfw1.corp.rackspace.net
-#    Hostname cbast.ord1.corp.rackspace.net
-#    Hostname cbast.iad3.corp.rackspace.net
-#    Hostname cbast.lon3.corp.rackspace.net
-#    Hostname cbast.lon5.corp.rackspace.net
-#    Hostname cbast.hkg1.corp.rackspace.net
-#    Hostname cbast.syd2.corp.rackspace.net
 
+Host bastion-ord
+    Hostname cbast.ord1.corp.rackspace.net
 
+Host bastion-iad
+    Hostname cbast.iad3.corp.rackspace.net
+
+Host bastion-lon3
+    Hostname cbast.lon3.corp.rackspace.net
+
+Host bastion-lon5
+    Hostname cbast.lon5.corp.rackspace.net
+
+Host bastion-hkg
+    Hostname cbast.hkg1.corp.rackspace.net
+
+Host bastion-syd
+    Hostname cbast.syd2.corp.rackspace.net
 
 Host bast*
     ForwardAgent yes
@@ -53,8 +63,10 @@ Host localhost
     ProxyCommand ssh
     
 
-#Host *
+Host *
     ProxyCommand ssh -A bastion 'nc %h %p'
+#    ProxyCommand bash -c '(timeout 0.1 nc -z %h %p) && nc %h %p || ssh -W %h:%p bastion'
+#   ProxyCommand bash -c "nc -w 1 %h %p || ssh -W  %h:%p bastion"
     #ProxyCommand ${HOME}/.ssh/rackproxy.sh %h %p
     ForwardX11Trusted yes
     GSSAPIAuthentication no
