@@ -1,0 +1,6 @@
+- name: Allow syncthing traffic
+  become: true
+  ufw:
+    rule: allow
+    name: syncthing
+  tags: tunning_fw
