@@ -1,5 +1,5 @@
 ---
-# vars file for 02-package-mgmt
+# vars file for 02-install-packages
 
 var_repositories:
   - { repo: 'ppa:peterlevi/ppa'}                                                                 # Variety repository

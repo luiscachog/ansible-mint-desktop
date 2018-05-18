@@ -1,5 +1,5 @@
 ---
-# handlers file for 02-package-mgmt
+# handlers file for 02-install-packages
 
 - name: restart apache
   become: true

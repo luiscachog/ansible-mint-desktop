@@ -1,5 +1,5 @@
 ---
-# defaults file for 02-package-mgmt
+# defaults file for 02-install-packages
 
 # Host to listen on for embedded server or apache
 ara_host: "ara.home.lab"
