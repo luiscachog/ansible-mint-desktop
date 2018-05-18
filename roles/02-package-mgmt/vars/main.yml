@@ -171,14 +171,14 @@ var_infra_pkgs:
 
 ara_servername: ara.local.home.lab
 
-# Packages updated on 2018/03/11
+# Packages updated on 2018/05/17
 var_extra_deb_packages:
   # - { url: 'https://github.com/BoostIO/boost-releases/releases/download/v0.8.18/boostnote_0.8.18_amd64.deb', name: 'boostnote_amd64.deb' }
   - { url: 'https://github.com/tinytacoteam/zazu/releases/download/v0.5.2/zazu_0.5.2_amd64.deb', name: 'zazu.deb' }
   - { url: 'https://remarkableapp.github.io/files/remarkable_1.87_all.deb', name: 'remarkable.deb'}
   - { url: 'https://release.gitkraken.com/linux/gitkraken-amd64.deb', name: 'gitkraken.deb' }
-  - { url: 'https://github.com/atom/atom/releases/download/v1.24.1/atom-amd64.deb', name: 'atom.deb' }
-  - { url: 'https://github.com/meetfranz/franz/releases/download/v5.0.0-beta.16/franz_5.0.0-beta.16_amd64.deb', name: 'franz.deb'}
+  - { url: 'https://github.com/atom/atom/releases/download/v1.27.0/atom-amd64.deb', name: 'atom.deb' }
+  - { url: 'https://github.com/meetfranz/franz/releases/download/v5.0.0-beta.18/franz_5.0.0-beta.18_amd64.deb', name: 'franz.deb'}
   - { url: 'https://discordapp.com/api/download?platform=linux&format=deb', name: 'discord.deb'}
 
 extra_sh_packages:
