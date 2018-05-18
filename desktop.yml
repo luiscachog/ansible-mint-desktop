@@ -12,7 +12,7 @@
     # Generated using: mkpasswd PASSWORD --method=sha-512
     - password: $6$yHd5iYUT/J$d.EXaDDSTTI8Xgz9SvItCMfxIpVzazV4qP.LQZ5h.8hQsaLqkhviN4ue9qXUuj9kkbCHb9DhZbuoc5EnplZ3O1
     - root_password: $6$IEhPEk8Lqo$Qq8YtSRfgzVbUkY19bc.UJ439tp3lFGs6R6Vj0amzhBfDPpSy4ZXZn0xM4ox5AZhMQFuQjlGvIzYl0mZA2/r4.
-    - shell: /bin/bash
+    - shell: /bin/zsh
     - codename: xenial
     - tmp_dir: "/home/{{ user }}/.ansible_tmp"
 
@@ -24,9 +24,9 @@
   roles:
     - 01-setup-user
     - 02-install-packages
-    - 03-dotfiles
+    - 03-config-packages
+    - 04-dotfiles
 #    - 04-vault
-#    - 05-config-files
     - 06-tunning
    # - k4ch0.firefox
    # - alzadude.firefox-addon
