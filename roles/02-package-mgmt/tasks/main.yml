@@ -7,4 +7,4 @@
 #- include: packages-apt.yml
 #- include: packages-extras.yml
 #- include: packages-python.yml
-- include: packages-config.yml
+- import_tasks: packages-config.yml
