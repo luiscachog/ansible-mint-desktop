@@ -1,5 +1,8 @@
 ---
 # tasks file for 05-config-files
 #
-- include: zazu-config.yml
-- include: autostart-config.yml
+- import_tasks: zazu-config.yml
+- import_tasks: autostart-config.yml
+- import_tasks: apache-config.yml
+- import_tasks: ara-config.yml
+- import_tasks: profile-config.yml

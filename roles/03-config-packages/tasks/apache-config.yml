@@ -1,0 +1,44 @@
+---
+- name: Create apache Directories
+  become: true
+  file:
+    path: "{{ item.name }}"
+    owner: "{{ apache_user }}"
+    group: "{{ apache_group }}"
+    mode: "{{ item.mode }}"
+    state: directory
+    recurse: yes
+  with_items:
+    - { name: "/etc/apache/vhost.d/", mode: "0755" }
+    - { name: "{{ default_wsgi_config_path }}", mode: "0755" }
+    - { name: "/var/www/.ansible", mode: "0770" }
+  tags:
+    - apache_config
+
+- name: Copy vhost template
+  become: true
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: www-data
+    group: www-data
+    mode: 0644
+  with_items:
+    - { src: 'templates/apache/ara_vhost.conf.j2', dest: '{{ apache_config_path }}/ara.conf' }
+  notify: 
+    - restart apache
+  tags:
+    - apache_config
+
+- name: Ensure the configuration is enabled
+  become: true
+  command: a2ensite "{{ item }}"
+  args:
+    creates: /etc/apache2/sites-enabled/{{ item }}.conf
+  with_items:
+    - ara
+  changed_when: true
+  notify:
+    - restart apache
+  tags:
+    - apache_config

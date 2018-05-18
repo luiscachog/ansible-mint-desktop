@@ -1,0 +1,46 @@
+---
+- name: Set ara_config_path when using mod_wsgi
+  set_fact:
+    ara_config_path: "{{ config_path | default(default_wsgi_config_path) }}"
+  tags:
+    - ara_config
+
+
+- name: Locate ara-wsgi script
+  become: true
+  command: which ara-wsgi
+  register: ara_wsgi  
+  changed_when: false
+  tags:
+    - ara_config
+
+- debug: var=ara_wsgi
+  tags:
+    - ara_config
+
+- name: Ensure configuration directory for Ansible and ARA exists
+  become: true
+  file:
+    path: "{{ ara_config_path }}"
+    owner: "{{ apache_user }}"
+    group: "{{ apache_group }}"
+    state: directory
+    recurse: yes
+  tags:
+    - ara_config
+
+
+- name: Copy ara files if one does not exists
+  become: true
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ apache_user }}"
+    group: "{{ apache_group }}"
+    mode: 0775
+    force: no
+  with_items:
+    - { src: "{{ ara_wsgi.stdout }}", dest: '{{ ara_config_path }}/ara-wsgi' }
+    #- { src: 'apache/ara_ansible.cfg', dest: '{{ ara_config_path }}/ansible.cfg'}
+  tags:
+    - ara_config

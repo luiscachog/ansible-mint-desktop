@@ -9,7 +9,7 @@
     recurse: yes
     state: directory
   tags:
-    - config-files
+    - zazu_config
 
 - name: Copy snippets to directory
   template:
@@ -21,4 +21,4 @@
   with_items:
     - "{{ vars_zazu_snippets }}"
   tags:
-    - config-files
+    - zazu_config
