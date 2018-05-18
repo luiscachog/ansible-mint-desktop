@@ -23,7 +23,7 @@
   # Main Tasks
   roles:
     - 01-setup-user
-    - 02-package-mgmt
+    - 02-install-packages
     - 03-dotfiles
 #    - 04-vault
 #    - 05-config-files
