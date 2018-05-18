@@ -1,5 +1,0 @@
----
-# vars file for 06-tunning
-
-var_files_tunning:
-  - { src: '.bashrc', dest: '/etc/skel/.bashrc', owner: 'root', group: 'root', mode: '0644'}     
