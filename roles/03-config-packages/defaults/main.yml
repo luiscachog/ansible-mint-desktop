@@ -1,16 +1,29 @@
 ---
-# defaults file for 05-config-files
+# defaults file for 05-config-packages 
+
+# Host to listen on for embedded server or apache
+ara_host: "ara.home.lab"
+
+# Default paths where an ansible.cfg file is expected
+default_wsgi_config_path: "/var/www/vhosts/ara"
+
+# Port to listen on for embedded server or apache
+ara_port: "80"
+
+# Deploy with apache and mod_wsgi
+mod_wsgi: true
+
 
 rax_signature: |
   -------------------------------
   Luis Cacho
-  Linux System Administrator - LATAM - RHCE - AWS Sysops
+  Linux System Administrator - LATAM - RHCE
   Rackspace - #1 Managed Cloud Company®
   -------------------------------
 
 rax_private_signature: |
   -------------------------------
   Luis Cacho - Ext 501-4965
-  Linux System Administrator - LATAM - RHCE - AWS Sysops
+  Linux System Administrator - LATAM - RHCE
   Rackspace - #1 Managed Cloud Company®
   -------------------------------

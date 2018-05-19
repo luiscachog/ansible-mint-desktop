@@ -1,8 +1,4 @@
 ---
 # handlers file for 02-install-packages
 
-- name: restart apache
-  become: true
-  service:
-    name: apache2
-    state: restarted
+

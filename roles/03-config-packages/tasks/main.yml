@@ -1,5 +1,5 @@
 ---
-# tasks file for 05-config-files
+# tasks file for 03-config-packages
 #
 - import_tasks: zazu-config.yml
 - import_tasks: autostart-config.yml

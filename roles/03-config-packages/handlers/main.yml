@@ -1,2 +1,8 @@
 ---
-# handlers file for 05-config-files
+# handlers file for 03-config-packages
+
+- name: restart apache
+  become: true
+  service:
+    name: apache2
+    state: restarted

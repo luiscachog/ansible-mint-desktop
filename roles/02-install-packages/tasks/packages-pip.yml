@@ -18,5 +18,6 @@
     - maybe
     #- parsero
 #    - mypy-lang
+    - python-openstackclient
   tags:
-    - package_mgmt_py
+    - package_pip

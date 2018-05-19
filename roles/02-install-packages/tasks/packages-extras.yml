@@ -9,7 +9,7 @@
   with_items:
     - "{{ var_extra_deb_packages }} "
   tags:
-    - package_mgmt_extra 
+    - packages_extras
 
 
 - name: Install additional deb packages
@@ -20,7 +20,7 @@
   with_items:
     - "{{ var_extra_deb_packages }} "
   tags:
-    - package_mgmt_extra
+    - packages_extras
 
 - name: Download additional sh packages
   get_url:
@@ -30,7 +30,7 @@
   with_items:
     - "{{ extra_sh_packages }}"
   tags:
-    - package_mgmt_extra
+    - packages_extras
 
 - name: Install additional sh packages 
   become: yes
@@ -39,5 +39,5 @@
   with_items:
     - "{{ extra_sh_packages }}"
   tags:
-    - package_mgmt_extra
+    - packages_extras
 
