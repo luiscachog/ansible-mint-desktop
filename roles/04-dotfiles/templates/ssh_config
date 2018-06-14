@@ -64,8 +64,8 @@ Host localhost
     
 
 Host *
-    ProxyCommand ssh -A bastion 'nc %h %p'
-#    ProxyCommand bash -c '(timeout 0.1 nc -z %h %p) && nc %h %p || ssh -W %h:%p bastion'
+#    ProxyCommand ssh -A bastion 'nc %h %p'
+    ProxyCommand bash -c '(timeout 0.1 nc -z %h %p) && nc %h %p || ssh -W %h:%p bastion'
 #   ProxyCommand bash -c "nc -w 1 %h %p || ssh -W  %h:%p bastion"
     #ProxyCommand ${HOME}/.ssh/rackproxy.sh %h %p
     ForwardX11Trusted yes
