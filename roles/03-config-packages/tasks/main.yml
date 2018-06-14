@@ -6,3 +6,4 @@
 - import_tasks: apache-config.yml
 - import_tasks: ara-config.yml
 - import_tasks: profile-config.yml
+- import_tasks: docker-config.yml

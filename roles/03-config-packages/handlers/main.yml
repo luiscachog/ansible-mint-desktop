@@ -6,3 +6,9 @@
   service:
     name: apache2
     state: restarted
+
+- name: restart docker
+  become: true
+  service:
+    name: docker
+    state: restarted

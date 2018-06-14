@@ -1,0 +1,21 @@
+---
+
+- name: Add user to docker group
+  become: true
+  user: "{{ user }}"
+  groups:
+    - docker
+  append: true
+  tags:
+    - docker_config
+
+- name: Enable at boot time
+  become: true
+  service: 
+    name: docker
+    enabled: true
+    state: restarted
+    notify:
+    - restart docker
+  tags:
+    - docker_config
