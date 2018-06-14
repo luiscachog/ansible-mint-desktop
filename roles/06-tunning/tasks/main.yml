@@ -3,3 +3,4 @@
  
 - import_tasks: config-files.yml
 - import_tasks: ufw-rules.yml
+- import_tasks: fonts.yml

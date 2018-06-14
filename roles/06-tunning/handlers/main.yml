@@ -1,2 +1,6 @@
 ---
 # handlers file for 06-tunning
+
+- name: update fonts cache
+  become: true
+  command: fc-cache -fv ~/.fonts

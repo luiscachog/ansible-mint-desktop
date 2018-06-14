@@ -3,3 +3,9 @@
 
 var_files_tunning:
   - { src: '.bashrc', dest: '/etc/skel/.bashrc', owner: 'root', group: 'root', mode: '0644'}
+
+var_repos:
+  - { repo: 'git@github.com:gabrielelana/awesome-terminal-fonts.git', name: 'awesome-terminal-fonts'}   
+  - { repo: 'git@github.com:powerline/fonts.git', name: 'powerline-fonts'}  
+  - { repo: 'git@github.com:ryanoasis/nerd-fonts.git', name: 'nerd-fonts'}  
+ 

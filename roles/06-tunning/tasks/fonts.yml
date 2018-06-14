@@ -1,0 +1,55 @@
+---
+- name: Download fonts to a temporary folder
+  #become: yes
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ tmp_dir }}/fonts/{{ item.name }}"
+    clone: yes
+    update: yes
+    version: master
+  with_items:
+   -  "{{ var_repos }}"
+  tags:
+    - tunning_fonts
+
+- name: Copy awesome-terminal-fonts to ~/.fonts
+  become: true
+  copy:
+    src: "{{ tmp_dir }}/fonts/awesome-terminal-fonts/build/"
+    dest: "/home/{{ user }}/.fonts/"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0775
+    force: true
+  notify:
+    - update fonts cache
+  tags:
+    - tunning_fonts
+
+- name: Copy Config file for awesome-terminal-fonts
+  become: true
+  copy:
+    src: "{{ tmp_dir }}/fonts/awesome-terminal-fonts/config/10-symbols.conf"
+    dest: "/home/{{ user }}/.config/fontconfig/conf.d/10-symbols.conf"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0664
+    force: true
+  tags:
+    - tunning_fonts
+
+- name: Copy powerline-fonts to ~/.fonts
+  become: true
+  command: sh "{{ tmp_dir }}/fonts/powerline-fonts/install.sh" 
+  notify:
+    - update fonts cache
+  tags:
+    - tunning_fonts
+
+- name: Install nerd-fonts from install.sh script
+  become: true
+  command: "{{ tmp_dir }}/fonts/nerd-fonts/install.sh"
+  notify:
+    - update fonts cache
+  tags:
+    - tunning_fonts
