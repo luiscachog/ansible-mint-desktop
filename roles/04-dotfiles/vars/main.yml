@@ -11,6 +11,8 @@ vars_dotfiles_symlinks:
   - { src: '/home/{{ user }}/.dotfiles/.bash_profile', dest: '/home/{{ user }}/.bash_profile'}
   - { src: '/home/{{ user }}/.dotfiles/.bash_aliases', dest: '/home/{{ user }}/.bash_aliases'}
   - { src: '/home/{{ user }}/.dotfiles/.bash_logout', dest: '/home/{{ user }}/.bash_logout'}
+  - { src: '/home/{{ user }}/.dotfiles/.zshrc', dest: '/home/{{ user }}/.zshrc'}
+  - { src: '/home/{{ user }}/.dotfiles/.zsh_aliases', dest: '/home/{{ user }}/.zsh_aliases'}
   - { src: '/home/{{ user }}/.dotfiles/.gitconfig', dest: '/home/{{ user }}/.gitconfig'}
   - { src: '/home/{{ user }}/.dotfiles/.git-completion.bash', dest: '/home/{{ user }}/.git-completion.bash'}
   - { src: '/home/{{ user }}/.dotfiles/.git-prompt.sh', dest: '/home/{{ user }}/.git-prompt.sh'}
