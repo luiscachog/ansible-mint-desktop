@@ -4,8 +4,8 @@
   get_url:
     url: "{{ item.url }}"
     dest: "{{ tmp_dir }}/packages/{{ item.name }}"
-    #owner: "{{ user }}"
-    #group: "{{ group }}"
+    owner: "{{ user }}"
+    group: "{{ group }}"
   with_items:
     - "{{ var_extra_deb_packages }} "
   tags:

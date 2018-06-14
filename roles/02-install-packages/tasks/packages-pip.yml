@@ -20,4 +20,4 @@
 #    - mypy-lang
     - python-openstackclient
   tags:
-    - package_pip
+    - packages_pip

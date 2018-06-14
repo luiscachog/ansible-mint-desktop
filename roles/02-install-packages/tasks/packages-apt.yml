@@ -12,7 +12,7 @@
     - whoopsie
   when: ansible_distribution == 'Linux Mint'
   tags:
-    - package_mgmt_init
+    - packages_init
 
 - name: Remove unattended upgrades packages to eliminate kernel conflicts and fill/space.
   apt: 
@@ -22,7 +22,7 @@
   with_items:
     - unattended-upgrades
   tags:
-    - package_mgmt_init
+    - packages_init
 
 - name: Add extra repositories
   become: yes
@@ -33,7 +33,7 @@
   with_items:
     - "{{ var_repositories }}"
   tags:
-    - package_mgmt_repos
+    - packages_repos
 
 # - name: Add apt-keys 
 #   become: yes
@@ -57,7 +57,7 @@
   with_items:
     - "{{ var_repokeys }}"
   tags:
-    - package_mgmt_repos
+    - packages_repos
 
 - name: Update system cache after added repositories
   become: true
@@ -67,14 +67,14 @@
   when:
     - apt_update is not defined
   tags:
-    - package_mgmt_repos
+    - packages_repos
 
 - name: Upgrade system after added repositories
   become: true
   apt:
     upgrade: true
   tags:
-    - package_mgmt_repos
+    - packages_repos
 
 - name: Install packages 
   become: true
@@ -87,5 +87,5 @@
     - "{{ var_tool_pkgs }}"
     - "{{ var_infra_pkgs }}"
   tags:
-    - package_mgmt_install
+    - packages_install
 

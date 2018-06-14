@@ -86,6 +86,7 @@ var_common_pkgs:
   - { name: 'publican'}
   - { name: 'fonts-ubuntu-font-family-console'}
   - { name: 'libgoo-canvas-perl'}
+  - { name: 'fonts-powerline'}
 
 var_dev_pkgs:
   - { name: 'sublime-text'}
@@ -173,7 +174,7 @@ var_infra_pkgs:
 
 ara_servername: ara.local.home.lab
 
-# Packages updated on 2018/05/17
+# Packages updated on 2018/06/01
 var_extra_deb_packages:
   # - { url: 'https://github.com/BoostIO/boost-releases/releases/download/v0.8.18/boostnote_0.8.18_amd64.deb', name: 'boostnote_amd64.deb' }
   - { url: 'https://github.com/tinytacoteam/zazu/releases/download/v0.5.2/zazu_0.5.2_amd64.deb', name: 'zazu.deb' }
@@ -182,6 +183,8 @@ var_extra_deb_packages:
   - { url: 'https://github.com/atom/atom/releases/download/v1.27.0/atom-amd64.deb', name: 'atom.deb' }
   - { url: 'https://github.com/meetfranz/franz/releases/download/v5.0.0-beta.18/franz_5.0.0-beta.18_amd64.deb', name: 'franz.deb'}
   - { url: 'https://discordapp.com/api/download?platform=linux&format=deb', name: 'discord.deb'}
+  - { url: 'https://github.com/gohugoio/hugo/releases/download/v0.40.3/hugo_0.40.3_Linux-64bit.deb', name: 'hugo.deb'}
+  - { url: 'https://github.com/kubernetes/minikube/releases/download/v0.28.0/minikube_0.28-0.deb', name: 'minikube.deb'}
 
 extra_sh_packages:
 - { url: 'https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh', name: 'oh-my-zsh.sh'}
