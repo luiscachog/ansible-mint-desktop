@@ -1,6 +1,6 @@
 boxes = {
   "vagrant-laptop" => {
-    :box => " ajxb/mint-19.0",
+    :box => "ajxb/mint-19.0",
     :ip  => '10.0.200.100',
     :cpu => "100",
     :ram => "512"
@@ -8,6 +8,8 @@ boxes = {
 }
 
 Vagrant.configure("2") do |config|
+
+  config.vm.box_version = "1.0.2"
 
   if Vagrant.has_plugin? "vagrant-vbguest"
     config.vbguest.auto_update = true
