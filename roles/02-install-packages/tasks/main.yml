@@ -7,3 +7,4 @@
 - import_tasks: packages-apt.yml
 - import_tasks: packages-extras.yml
 - import_tasks: packages-pip.yml
+- import_tasks: packages-npm.yml

@@ -1,0 +1,19 @@
+---
+
+- name: Install NPM packages
+  become: true
+  npm:
+    name: "{{ item }}"
+    global: true
+    state: latest
+  with_items:
+    - namecheap-cli
+    - coinmon
+    - git-stats
+    - git-stats-importer
+    - parse-columns-cli
+    - pokemon-terminal
+    - bower
+
+  tags:
+    - packages_npm
