@@ -1,0 +1,34 @@
+---
+
+- name: Download icons to a temporary folder
+  #become: yes
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ tmp_dir }}/icons/{{ item.name }}"
+    clone: yes
+    update: yes
+    version: master
+  with_items:
+    -  "{{ var_icons }}"
+  tags:
+    - tunning_icons
+
+- name: Find all directories inside "{{ item.name }}" repo.
+  find:
+    path: "{{ tmp_dir }}/icons/{{ item.name }}"
+    file_type: directory
+  register: directories
+  with_items:
+    - "{{ var_icons }}"
+  tags:
+    - tunning_icons
+
+- name: Copy icons to destination
+  command: cp -rf "{{ dir.path }}" "/home/{{ user }}/.icons/"
+  with_items:
+    - "{{ directories }}"
+  loop_control:
+    loop_var: dir
+  tags:
+    - tunning_icons
+

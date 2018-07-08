@@ -86,6 +86,7 @@
     - "{{ var_dev_pkgs }}"
     - "{{ var_tool_pkgs }}"
     - "{{ var_infra_pkgs }}"
+    - "{{ var_themes_pkgs }}"
   tags:
     - packages_install
 

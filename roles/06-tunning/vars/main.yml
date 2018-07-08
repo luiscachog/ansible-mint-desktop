@@ -8,4 +8,6 @@ var_repos:
   - { repo: 'git@github.com:gabrielelana/awesome-terminal-fonts.git', name: 'awesome-terminal-fonts'}   
   - { repo: 'git@github.com:powerline/fonts.git', name: 'powerline-fonts'}  
   - { repo: 'git@github.com:ryanoasis/nerd-fonts.git', name: 'nerd-fonts'}  
- 
+
+var_icons:
+  - { repo: 'https://gitlab.com/LinxGem33/Arc-X-Icons.git', name: 'arc-x-icons'}

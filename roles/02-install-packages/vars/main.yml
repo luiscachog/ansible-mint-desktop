@@ -12,6 +12,7 @@ var_repositories:
   - { repo: 'ppa:ubuntu-mozilla-security/ppa'}                                                   # Firefox repository
   - { repo: 'ppa:webupd8team/terminix'}                                                          # Tilix repository
   - { repo: 'ppa:oguzhaninan/stacer'}                                                            # Stacer repository
+  - { repo: 'ppa:jlbarriere68/noson-app'}
   # - { repo: 'ppa:tomahawk/ppa'}                                                                # Tomahawk repository
   # - { repo: ' remmina-ppa-team/remmina-next'}                                                  # FreeRDP repository
   - { repo: 'deb http://repository.spotify.com stable non-free'}                                 # Spotify repository
@@ -21,6 +22,7 @@ var_repositories:
   - { repo: 'deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free'}      # Resilio repository
   - { repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ codename }} main'}                      # Kubernetes repository
   - { repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ codename }} stable'}   # Docker repository
+
 
 
 var_repokeys:
@@ -49,7 +51,6 @@ var_common_pkgs:
   - { name: 'clementine'}
   - { name: 'gimp'}
   - { name: 'whois'}
-  - { name: 'breeze-cursor-theme'}
   - { name: 'software-properties-common'}
   - { name: 'variety'}
   - { name: 'shotwell'}
@@ -87,6 +88,7 @@ var_common_pkgs:
   - { name: 'fonts-ubuntu-font-family-console'}
   - { name: 'libgoo-canvas-perl'}
   - { name: 'fonts-powerline'}
+  - { name: 'noson-app'}
 
 var_dev_pkgs:
   - { name: 'sublime-text'}
@@ -172,19 +174,31 @@ var_infra_pkgs:
   - { name: 'kubelet'}
   - { name: 'etcher-electron'}
 
+var_themes_pkgs:
+  - { name: 'numix-gtk-theme'}
+  - { name: 'numix-icon-theme'}
+  - { name: 'numix-icon-theme-circle'}
+  - { name: 'numix-icon-theme-square'}
+  - { name: 'nuvola-icon-theme'}
+  - { name: 'breeze-cursor-theme'}
+  - { name: 'xubuntu-icon-theme'}
+
+  
+
 ara_servername: ara.local.home.lab
 
-# Packages updated on 2018/06/01
+# Packages updated on 2018/07/07
 var_extra_deb_packages:
   # - { url: 'https://github.com/BoostIO/boost-releases/releases/download/v0.8.18/boostnote_0.8.18_amd64.deb', name: 'boostnote_amd64.deb' }
   - { url: 'https://github.com/tinytacoteam/zazu/releases/download/v0.5.2/zazu_0.5.2_amd64.deb', name: 'zazu.deb' }
   - { url: 'https://remarkableapp.github.io/files/remarkable_1.87_all.deb', name: 'remarkable.deb'}
   - { url: 'https://release.gitkraken.com/linux/gitkraken-amd64.deb', name: 'gitkraken.deb' }
-  - { url: 'https://github.com/atom/atom/releases/download/v1.27.0/atom-amd64.deb', name: 'atom.deb' }
+  - { url: 'https://github.com/atom/atom/releases/download/v1.28.1/atom-amd64.deb', name: 'atom.deb' }
   - { url: 'https://github.com/meetfranz/franz/releases/download/v5.0.0-beta.18/franz_5.0.0-beta.18_amd64.deb', name: 'franz.deb'}
   - { url: 'https://discordapp.com/api/download?platform=linux&format=deb', name: 'discord.deb'}
-  - { url: 'https://github.com/gohugoio/hugo/releases/download/v0.40.3/hugo_0.40.3_Linux-64bit.deb', name: 'hugo.deb'}
+  - { url: 'https://github.com/gohugoio/hugo/releases/download/v0.42.2/hugo_0.42.2_Linux-64bit.deb', name: 'hugo.deb'}
   - { url: 'https://github.com/kubernetes/minikube/releases/download/v0.28.0/minikube_0.28-0.deb', name: 'minikube.deb'}
+  - { url: 'https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.20.0/webtorrent-desktop_0.20.0-1_amd64.deb', name: 'webtorrent.deb'}
 
 extra_sh_packages:
 - { url: 'https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh', name: 'oh-my-zsh.sh'}
