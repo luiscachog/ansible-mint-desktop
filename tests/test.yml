@@ -1,0 +1,28 @@
+---
+- name: tests - apply role for ubuntu bootstrap
+  hosts:
+    - all
+  connection: local
+  tags:
+    - test-1
+
+  vars:
+    - ansible_unit_test: true
+
+  roles:
+    - { role: '../roles/01-setup-user' }
+
+  post_tasks:
+    - name: tests - sleep for Test startup
+      pause:
+        seconds: 2
+        prompt: "Waiting for Test startup..."
+
+    - name: tests - install curl
+      apt:
+        pkg: curl
+        install_recommends: no
+        state: present
+      become: yes
+
+  #    - include: tasks.yml

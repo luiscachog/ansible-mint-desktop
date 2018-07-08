@@ -162,6 +162,7 @@ var_tool_pkgs:
   - { name: 'xsel'}
   - { name: 'ntp'}
   # - { name: 'stacer'}
+  - { name: 'dstat'}
 
 
 var_infra_pkgs:
