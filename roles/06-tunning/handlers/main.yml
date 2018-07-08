@@ -4,3 +4,7 @@
 - name: update fonts cache
   become: true
   command: fc-cache -fv ~/.fonts
+
+- name: prelink command
+  become: true
+  command: /usr/sbin/prelink -amvR

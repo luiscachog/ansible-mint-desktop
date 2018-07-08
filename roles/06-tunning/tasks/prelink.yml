@@ -1,0 +1,36 @@
+---
+- name: Add blacklisted libraries to /etc/prelink.conf
+  become: true
+  lineinfile:
+    path: /etc/prelink.conf
+    line: "{{ item.line }}"
+    insertafter: "{{ item.insertafter }}"
+  with_items:
+    - { line: '-b /usr/lib32/skype/skype', insertafter: 'EOF'}
+    - { line: '-b /usr/lib/skype/skype', insertafter: '-b /usr/lib32/skype/skype'}
+    - { line: '-b /usr/lib/mozilla/plugins/libflashplayer.so', insertafter: '/usr/lib/skype/skype' }
+  notify:
+    - prelink command
+  tags:
+    - tunning_prelink
+
+- name: Enable prelink on /etc/default/prelink
+  become: true
+  lineinfile:
+    path: /etc/default/prelink
+    regexp: '^PRELINKING='
+    line: 'PRELINKING=yes'
+  notify:
+    - prelink command
+  tags:
+    - tunning_prelink
+
+- name: Add cronjob to executed daily
+  become: true
+  cron:
+    name: prelink 
+    special_time: daily
+    user: root
+    job: "/usr/sbin/prelink -amR &> /dev/null"
+  tags:
+    - tunning_prelink

@@ -5,3 +5,4 @@
 - import_tasks: ufw-rules.yml
 - import_tasks: fonts.yml
 - import_tasks: icons.yml
+- import_tasks: prelink.yml
