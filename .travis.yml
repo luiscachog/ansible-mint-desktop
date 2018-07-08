@@ -7,6 +7,7 @@ before_install:
   - sudo apt-get install -qq python-apt python-pycurl
 
 install:
+  - pip install --upgrade pip
   - pip install ansible
   #- ansible-galaxy install -r tests/requirements.yml -p tests/roles
   #  - "printf '[defaults]\\nroles_path = ../\\n' >> ansible.cfg"
