@@ -22,9 +22,9 @@
 
   # Main Tasks
   roles:
-    - 01-setup-user
-    - 02-install-packages
+    - 01-install-packages
     - 03-config-packages
+    - 01-setup-user
     - 04-dotfiles
 #    - 04-vault
     - 06-tunning

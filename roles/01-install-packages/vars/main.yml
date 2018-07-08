@@ -163,6 +163,8 @@ var_tool_pkgs:
   - { name: 'ntp'}
   # - { name: 'stacer'}
   - { name: 'dstat'}
+  - { name: 'prelink'}
+  - { name: 'preload'}
 
 
 var_infra_pkgs:

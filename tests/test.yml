@@ -21,7 +21,7 @@
 
 
   roles:
-    - { role: '../roles/01-setup-user' }
+    - { role: '../roles/01-install-packages' }
 
   post_tasks:
     - name: tests - sleep for Test startup

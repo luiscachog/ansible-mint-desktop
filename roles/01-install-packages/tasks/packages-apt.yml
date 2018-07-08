@@ -88,5 +88,5 @@
     - "{{ var_infra_pkgs }}"
     - "{{ var_themes_pkgs }}"
   tags:
-    - packages_install
+    - packages_apt
 
