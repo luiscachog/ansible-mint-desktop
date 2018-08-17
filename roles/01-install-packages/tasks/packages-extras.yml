@@ -21,17 +21,6 @@
   tags:
     - packages_extras
 
-# - name: Download additional zip packages
-#   get_url:
-#     url: "{{ item.url }}"
-#     dest: "{{ tmp_dir }}/packages/{{ item.name }}"
-#     mode: u+rwx
-#   with_items:
-#     - "{{ vars_extra_zip_packages }}"
-#   tags:
-#     - packages_extras
-#     - test
-
 - name: Install additional zip packages
   become: true
   unarchive:
