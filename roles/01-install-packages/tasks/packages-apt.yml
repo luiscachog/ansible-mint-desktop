@@ -63,7 +63,7 @@
   become: true
   apt:
     update_cache: true
-    cache_valid_time: 3600
+    cache_valid_time: '3600'
   when:
     - apt_update is not defined
   tags:
@@ -72,7 +72,7 @@
 - name: Upgrade system after added repositories
   become: true
   apt:
-    upgrade: true
+    upgrade: safe
   tags:
     - packages_repos
 
