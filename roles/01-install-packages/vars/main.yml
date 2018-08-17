@@ -190,18 +190,20 @@ var_themes_pkgs:
 
 ara_servername: ara.local.home.lab
 
-# Packages updated on 2018/07/07
+# Packages updated on 2018/07/20
 var_extra_deb_packages:
   # - { url: 'https://github.com/BoostIO/boost-releases/releases/download/v0.8.18/boostnote_0.8.18_amd64.deb', name: 'boostnote_amd64.deb' }
   - { url: 'https://github.com/tinytacoteam/zazu/releases/download/v0.5.2/zazu_0.5.2_amd64.deb', name: 'zazu.deb' }
   - { url: 'https://remarkableapp.github.io/files/remarkable_1.87_all.deb', name: 'remarkable.deb'}
-  - { url: 'https://release.gitkraken.com/linux/gitkraken-amd64.deb', name: 'gitkraken.deb' }
-  - { url: 'https://github.com/atom/atom/releases/download/v1.28.1/atom-amd64.deb', name: 'atom.deb' }
+  - { url: 'https://github.com/atom/atom/releases/download/v1.28.2/atom-amd64.deb', name: 'atom.deb' }
   - { url: 'https://github.com/meetfranz/franz/releases/download/v5.0.0-beta.18/franz_5.0.0-beta.18_amd64.deb', name: 'franz.deb'}
-  - { url: 'https://discordapp.com/api/download?platform=linux&format=deb', name: 'discord.deb'}
-  - { url: 'https://github.com/gohugoio/hugo/releases/download/v0.42.2/hugo_0.42.2_Linux-64bit.deb', name: 'hugo.deb'}
-  - { url: 'https://github.com/kubernetes/minikube/releases/download/v0.28.0/minikube_0.28-0.deb', name: 'minikube.deb'}
+  - { url: 'https://github.com/gohugoio/hugo/releases/download/v0.44/hugo_0.44_Linux-64bit.deb', name: 'hugo.deb'}
+  - { url: 'https://github.com/kubernetes/minikube/releases/download/v0.28.1/minikube_0.28-1.deb', name: 'minikube.deb'}
   - { url: 'https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.20.0/webtorrent-desktop_0.20.0-1_amd64.deb', name: 'webtorrent.deb'}
+  - { url: 'https://release.gitkraken.com/linux/gitkraken-amd64.deb', name: 'gitkraken.deb' }
+  - { url: 'https://updates.getmailspring.com/download?platform=linuxDeb', name: 'mailspring.deb'}
+  - { url: 'https://discordapp.com/api/download?platform=linux&format=deb', name: 'discord.deb'}
+
 
 extra_sh_packages:
 - { url: 'https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh', name: 'oh-my-zsh.sh'}

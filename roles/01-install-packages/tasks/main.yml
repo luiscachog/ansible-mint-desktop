@@ -1,5 +1,5 @@
 ---
-# tasks file for 02-install-packages
+# tasks file for 01-install-packages
 
 - name: Role - Package Configuration
   shell: echo "Setting up the packages... "
