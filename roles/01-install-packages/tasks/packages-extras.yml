@@ -7,10 +7,9 @@
     owner: "{{ user }}"
     group: "{{ group }}"
   with_items:
-    - "{{ var_extra_deb_packages }} "
+    - "{{ vars_extra_deb_packages }} "
   tags:
     - packages_extras
-
 
 - name: Install additional deb packages
   become: yes
@@ -18,9 +17,35 @@
     deb: "{{ tmp_dir}}/packages/{{ item.name }}"
     state: present
   with_items:
-    - "{{ var_extra_deb_packages }} "
+    - "{{ vars_extra_deb_packages }} "
   tags:
     - packages_extras
+
+# - name: Download additional zip packages
+#   get_url:
+#     url: "{{ item.url }}"
+#     dest: "{{ tmp_dir }}/packages/{{ item.name }}"
+#     mode: u+rwx
+#   with_items:
+#     - "{{ vars_extra_zip_packages }}"
+#   tags:
+#     - packages_extras
+#     - test
+
+- name: Install additional zip packages
+  become: true
+  unarchive:
+    src: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    keep_newer: true
+    remote_src: true
+    owner: "{{ user }}"
+    group: "{{ group }}"
+  with_items:
+    - "{{ vars_extra_zip_packages }}"
+  tags:
+    - packages_extras
+    - test
 
 - name: Download additional sh packages
   get_url:
@@ -28,7 +53,7 @@
     dest: "{{ tmp_dir }}/packages/{{ item.name }}"
     mode: u+rwx
   with_items:
-    - "{{ extra_sh_packages }}"
+    - "{{ vars_extra_sh_packages }}"
   tags:
     - packages_extras
 
@@ -37,7 +62,7 @@
   raw: sh "{{ tmp_dir }}/packages/{{ item.name }}"
   ignore_errors: yes
   with_items:
-    - "{{ extra_sh_packages }}"
+    - "{{ vars_extra_sh_packages }}"
   tags:
     - packages_extras
 
